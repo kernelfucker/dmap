@@ -300,7 +300,7 @@ int main(int argc, char **argv){
 		}
 	}
 
-	if (!iparg || !parg || !targ)
+	if(!iparg || !parg || !targ)
 		usage(argv[0]);
 
 	parse_ip(iparg, &cf);
