@@ -20,6 +20,8 @@
 #define scan_connect 1
 #define scan_sync 2
 
+#define last_version 0.2
+
 const int af = AF_INET;
 const int sr = SOCK_RAW;
 const int ss = SOL_SOCKET;
@@ -42,10 +44,11 @@ struct scanc{
 static void usage(const char *s){
 	fputs("dmap - dynamic minimal network mapper\n", stderr);
 	fprintf(stderr, "usage: %s -i <ip> -p <ports> -t <types>\n", s);
-	fputs("  -i  IP Range (example: 192.168.1.0/28)\n", stderr);
-	fputs("  -p  Ports (example: 21,22,53,80)\n", stderr);
-	fputs("  -t  Scan type: ping, connect, sync\n", stderr);
-	fputs("  -h  Display this\n", stderr);
+	fputs("  -i  ip range (example: 192.168.1.0/28)\n", stderr);
+	fputs("  -p  ports (example: 21,22,53,80)\n", stderr);
+	fputs("  -t  scan type: ping, connect, sync\n", stderr);
+	fputs("  -h  display this\n", stderr);
+	fputs("  -v  show version information\n", stderr);
 	exit(1);
 }
 
@@ -290,12 +293,16 @@ int main(int argc, char **argv){
 	struct scanc cf = {0};
 	int optl;
 	char *iparg = NULL, *parg = NULL, *targ = NULL;
-	while((optl = getopt(argc, argv, "i:p:t:h")) != -1){
+	while((optl = getopt(argc, argv, "i:p:t:hv")) != -1){
 		switch(optl){
 		case 'i': iparg = optarg; break;
 		case 'p': parg = optarg; break;
 		case 't': targ = optarg; break;
 		case 'h': usage(argv[0]); break;
+		case 'v':
+			printf("dmap-%s\n", last_version);
+			exit(0);
+			break;
 		default: usage(argv[0]);
 		}
 	}
