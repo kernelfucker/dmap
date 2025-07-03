@@ -15,4 +15,4 @@ doas ./dmap -i 127.0.0.1/28 -p 22 -t connect
 ```
 
 # example
-![image](https://github.com/user-attachments/assets/f5c2b35c-115e-4e45-9289-96aa6f9738d7)
+![image](https://github.com/user-attachments/assets/35510a0b-e6c9-4ca2-87c1-1e58882d1399)
