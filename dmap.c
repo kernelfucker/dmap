@@ -20,7 +20,7 @@
 #define scan_connect 1
 #define scan_sync 2
 
-#define last_version 0.2
+#define last_version "0.2"
 
 const int af = AF_INET;
 const int sr = SOCK_RAW;
@@ -42,13 +42,12 @@ struct scanc{
 };
 
 static void usage(const char *s){
-	fputs("dmap - dynamic minimal network mapper\n", stderr);
 	fprintf(stderr, "usage: %s -i <ip> -p <ports> -t <types>\n", s);
 	fputs("  -i  ip range (example: 192.168.1.0/28)\n", stderr);
 	fputs("  -p  ports (example: 21,22,53,80)\n", stderr);
 	fputs("  -t  scan type: ping, connect, sync\n", stderr);
-	fputs("  -h  display this\n", stderr);
 	fputs("  -v  show version information\n", stderr);
+	fputs("  -h  display this\n", stderr);
 	exit(1);
 }
 
