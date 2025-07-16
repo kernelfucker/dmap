@@ -5,7 +5,7 @@ dynamic minimal network mapper
 $ clang dmap.c -o dmap -Os -s
 
 # usage
-doas ./dmap -i 127.0.0.1/28 -p 22 -t connect
+\# ./dmap -i 127.0.0.1/28 -p 22 -t connect
 
 # options
 ```
